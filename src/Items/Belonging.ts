@@ -1,3 +1,4 @@
+import { ItemCategory } from "../Enums/ItemCategory";
 import { Item } from "./Item";
 
 export class Belonging extends Item {
