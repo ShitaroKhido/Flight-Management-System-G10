@@ -18,11 +18,14 @@ const ukrainAirport = new Airport(
   "Ukrain",
   "Kyiv"
 );
+
 // Declare BoardingGate Object:
 phnomPenhAirport.assignBoardinGates(10);
+
 // Declare Arlines Object:
 const cambodiaAirline = new Airline("Cambodia Airline");
 const ukrainAirline = new Airline("Unkrain Airline");
+
 // Declare list of plane info:
 const listOfPlaneInfo: PlanInfo[] = [
   { serialNumber: "AWS-123", numberOfSeat: 120 },
@@ -30,8 +33,13 @@ const listOfPlaneInfo: PlanInfo[] = [
   { serialNumber: "AUS-912", numberOfSeat: 110 },
 ];
 
+// Register Plane and Flight route:
 cambodiaAirline.registerPlane(listOfPlaneInfo);
 cambodiaAirline.addFlightRoute(ukrainAirport);
+
+ukrainAirline.registerPlane(listOfPlaneInfo);
+ukrainAirline.addFlightRoute(phnomPenhAirport);
+
 // Main Code:
 phnomPenhAirport.registerAirline(cambodiaAirline);
 phnomPenhAirport.registerAirline(ukrainAirline);
@@ -43,9 +51,4 @@ ukrainAirport.registerAirline(ukrainAirline);
 // console.log(phnomPenhAirport);
 // console.log(cambodiaAirline.getPlaneWithSerial("DDS-233"));
 
-const p = new Passenger(
-  "J",
-  "Junior",
-  2,
-  150,
-);
+const p = new Passenger("J", "Junior", 2, 150);
