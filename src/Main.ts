@@ -41,6 +41,10 @@ listOfPlaneInfo.forEach((info) => {
   cambodiaAirline.registerPlane(info.serial, info.numberOfSeat);
 });
 
+// Add flight route:
+
+
+
 // Logs:
 console.log(cambodiaAirport);
 console.log(ukrainAirport);

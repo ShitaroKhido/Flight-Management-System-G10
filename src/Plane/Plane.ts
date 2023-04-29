@@ -1,3 +1,4 @@
+import { Passenger } from "../Peoples/Passenger";
 import { Seat } from "./Seat";
 
 export class Plane {
@@ -20,5 +21,13 @@ export class Plane {
       }
       this.seats.push(new Seat(seatNumber));
     }
+  }
+
+  assignPassengerSeat(seatNumber: string, passenger: Passenger) {
+    this.seats.forEach((seat) => {
+      if (seat.seatInfo().seatNumber.toLowerCase() === seatNumber) {
+        seat.assignToSeat(passenger);
+      }
+    });
   }
 }

@@ -1,9 +1,18 @@
-import { Airport } from "../Airport/Airport";
+import { FlightType } from "../Enums/FlightType";
+import { Flight } from "./Flight";
 
-export class FlightRoute{
-    private arrivalDestination: Airport;
+export class FlightSchedule {
+  private flights: Flight[] = [];
+  constructor(private departureTime: Date, private arrivalTime: Date) {}
 
-    constructor(arrivalDestination: Airport){
-        this.arrivalDestination = arrivalDestination;
-    }
+  scheduleInfo() {
+    return {
+      depart: this.departureTime,
+      arrive: this.arrivalTime,
+    };
+  }
+
+  assignFlight(flightType: FlightType) {
+    this.flights.push(new Flight(flightType));
+  }
 }

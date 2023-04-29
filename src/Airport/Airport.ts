@@ -15,6 +15,16 @@ export class Airport {
     this.country = country;
   }
 
+  airportInfo() {
+    return {
+      name: this.name,
+      city: this.city,
+      country: this.country,
+      airlines: this.airlines,
+      boardingGates: this.boardingGates,
+    };
+  }
+
   registerAirline(airline: Airline) {
     this.airlines.push(airline);
   }
