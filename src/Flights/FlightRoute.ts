@@ -1,13 +1,20 @@
 import { Airport } from "../Airport/Airport";
 
 export class FlightRoute {
-  private arrivalDestination: Airport;
-  private landingLocations: Airport[] = [];
+    private landingLocations: Airport[] = [];
 
-  constructor(arrivalDestination: Airport) {
-    this.arrivalDestination = arrivalDestination;
-  }
-  getarrivalDestination() {
-    return this.arrivalDestination;
-  }
+    constructor(private arrivalDestination: Airport) {
+    }
+
+    getarrivalDestination() {
+        return this.arrivalDestination;
+    }
+
+    addLandingLocation(landingLocations: Airport) {
+        this.landingLocations.push(landingLocations);
+    }
+
+    updateArrivalDestination(arrivalDestination: Airport) {
+        this.arrivalDestination = arrivalDestination;
+    }
 }
