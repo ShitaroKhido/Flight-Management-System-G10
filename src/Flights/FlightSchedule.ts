@@ -1,9 +1,14 @@
-import { Airport } from "../Airport/Airport";
+import { FlightRoute } from "./FlightRoute";
+export class FlightSchedule{
+    private departureTime: Date;
+    private arrivalTime: Date;
+    private routes: FlightRoute[] = [];
 
-export class FlightRoute{
-    private arrivalDestination: Airport;
-
-    constructor(arrivalDestination: Airport){
-        this.arrivalDestination = arrivalDestination;
+    constructor(departureTime: Date, arrivalTime: Date){
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
     }
+
 }
+
+
