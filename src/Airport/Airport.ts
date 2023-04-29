@@ -14,6 +14,13 @@ export class Airport {
     this.city = city;
     this.country = country;
   }
+  airportInfo() {
+    return {
+      name: this.name,
+      country: this.country,
+      city: this.city,
+    };
+  }
   assignBoardinGates(gateCount: number) {
     for (let i = 0; i <= gateCount; i++) {
       this.gates.push(new BoardingGate(i + 1));

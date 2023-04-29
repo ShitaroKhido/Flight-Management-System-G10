@@ -1,10 +1,13 @@
 import { Airport } from "../Airport/Airport";
 
-export class FlightRoute{
-    private arrivalDestination: Airport;
-    private landingLocations: Airport[] = [];
+export class FlightRoute {
+  private arrivalDestination: Airport;
+  private landingLocations: Airport[] = [];
 
-    constructor(arrivalDestination: Airport){
-        this.arrivalDestination = arrivalDestination;
-    }
+  constructor(arrivalDestination: Airport) {
+    this.arrivalDestination = arrivalDestination;
+  }
+  getarrivalDestination() {
+    return this.arrivalDestination;
+  }
 }
