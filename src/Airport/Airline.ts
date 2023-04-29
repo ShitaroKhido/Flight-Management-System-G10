@@ -1,9 +1,49 @@
 import { FlightRoute } from "../Flights/FlightRoute";
+import { Passenger } from "../Peoples/Passenger";
+import { PlanInfo, Plane } from "../Plane/Plane";
+import { Airport } from "./Airport";
 
-export class Airline{
-    private aviableRoutes: FlightRoute[]= [];
+export class Airline {
+  private aviableRoutes: FlightRoute[] = [];
+  private planes: Plane[] = [];
 
-    constructor(private name:string){
-        this.name = name;
-    }
+  constructor(private name: string) {
+    this.name = name;
+  }
+
+  registerPlane(listOfPlaneInfo: PlanInfo[]) {
+    listOfPlaneInfo.forEach((plane) => {
+      this.planes.push(new Plane(plane.serialNumber, plane.numberOfSeat));
+    });
+  }
+
+  getPlanes() {
+    return this.planes;
+  }
+
+  getPlaneWithSerial(serialNumber: string): Plane | undefined {
+    let matchedPlane = undefined;
+    this.planes.forEach((plane) => {
+      if (plane.getSerialNumber() === serialNumber) {
+        matchedPlane = plane;
+      }
+    });
+    return matchedPlane;
+  }
+
+  addFlightRoute(destAirport: Airport) {
+    this.aviableRoutes.push(new FlightRoute(destAirport));
+  }
+
+  availableDestination() {
+    return this.aviableRoutes;
+  }
+
+  bookingFlight(passenger: Passenger, destination: string) {
+    this.aviableRoutes.forEach((route) => {
+      if (route.getarrivalDestination().airportInfo().country === destination) {
+        console.log("Okay");
+      }
+    });
+  }
 }

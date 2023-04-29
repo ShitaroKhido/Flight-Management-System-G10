@@ -2,11 +2,13 @@ import { Belonging } from "../Items/Belonging";
 import { Meal } from "../Items/Meal";
 import { Seat } from "./Seat";
 
+export type PlanInfo = { serialNumber: string; numberOfSeat: number };
+
 export class Plane {
   private seats: Seat[] = [];
   private mealLoadout: Meal[] = [];
-  private planeCargo: Belonging[]= [];
-  
+  private planeCargo: Belonging[] = [];
+
   constructor(private serialNumber: string, private numberOfSeat: number) {
     this.generateSeats(numberOfSeat);
   }
@@ -25,5 +27,9 @@ export class Plane {
       }
       this.seats.push(new Seat(seatNumber));
     }
+  }
+
+  getSerialNumber() {
+    return this.serialNumber;
   }
 }
