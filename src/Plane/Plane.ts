@@ -1,5 +1,6 @@
 import { Belonging } from "../Items/Belonging";
 import { Meal } from "../Items/Meal";
+import { Passenger } from "../Peoples/Passenger";
 import { Seat } from "./Seat";
 
 export type PlanInfo = { serialNumber: string; numberOfSeat: number };
@@ -8,6 +9,7 @@ export class Plane {
   private seats: Seat[] = [];
   private mealLoadout: Meal[] = [];
   private planeCargo: Belonging[] = [];
+  private gateNumber: number | undefined;
 
   constructor(private serialNumber: string, private numberOfSeat: number) {
     this.generateSeats(numberOfSeat);
@@ -31,5 +33,38 @@ export class Plane {
 
   getSerialNumber() {
     return this.serialNumber;
+  }
+
+  dockAtGate(gateNumber: number) {
+    this.gateNumber;
+  }
+
+  addPassenger(passenger: Passenger, seatNumber: string) {
+    this.seats.forEach((seat) => {
+      if (seat.getSeatNumber() === seatNumber) {
+        seat.assignSeat(passenger);
+      }
+    });
+  }
+
+  loadItem() {
+    this.seats.forEach((seat) => {
+      seat
+        .passengerStatus()
+        .passenger?.getTickets()
+        .forEach((ticket) => {
+          this.mealLoadout.push(
+            new Meal("Food", 0.5, ticket.getPassengerMealType())
+          );
+        });
+      if (seat.passengerStatus().status === true) {
+        seat
+          .passengerStatus()
+          .passenger?.getBelonging()
+          .forEach((item) => {
+            this.planeCargo.push(item);
+          });
+      }
+    });
   }
 }

@@ -60,13 +60,22 @@ export class Airline {
     passenger: Passenger,
     destination: string,
     flightType: FlightType,
-    mealType: MealType
+    mealType: MealType,
+    time: Date,
+    flightNumber: number,
+    seatNumber: string
   ) {
     this.aviableRoutes.forEach((route) => {
-      if (route.getarrivalDestination().airportInfo().country === destination) {
-        const newTicket = new Ticket(this.generatePNR(passenger));
+      if (route.getarrivalDestination().airportInfo().country.toLowerCase() === destination) {
+        const newTicket = new Ticket(this.generatePNR(passenger), mealType);
+        const flight = this.getFlightRoute(destination)
+          ?.getSchedule(time)
+          ?.selectFlight(flightNumber);
         passenger.addTicket(newTicket);
-        this.getFlightRoute(destination)
+        if (flight !== undefined) {
+          console.log("Pass")
+          newTicket.addBoardingTicket(passenger, seatNumber, flight);
+        }
       }
     });
   }

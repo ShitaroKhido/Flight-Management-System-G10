@@ -4,24 +4,33 @@ import { FrequentFlyer } from "../Tickets/FrequentFlyer";
 import { Ticket } from "../Tickets/Ticket";
 import { Person } from "./Person";
 
-export class Passenger extends Person{
-    private belongings: Belonging[]= [];
-    private tickets: Ticket[] = [];
-    private flyerPoints: FrequentFlyer = new FrequentFlyer(0,0);
-    
-    constructor(firstName:string, lastName:string, height: number, weight: number){
-        super(firstName, lastName, height, weight)
-    }
+export class Passenger extends Person {
+  private belongings: Belonging[] = [];
+  private tickets: Ticket[] = [];
+  private flyerPoints: FrequentFlyer = new FrequentFlyer(0, 0);
 
-    addBelonging(belonging: Belonging) {
-        this.belongings.push(belonging);
-    }
+  constructor(
+    firstName: string,
+    lastName: string,
+    height: number,
+    weight: number
+  ) {
+    super(firstName, lastName, height, weight);
+  }
 
-    addTicket(tickets: Ticket){
-        this.tickets.push(tickets);
-    }
+  addBelonging(belonging: Belonging) {
+    this.belongings.push(belonging);
+  }
 
-    getTickets(): Ticket[]{
-        return this.tickets;
-    }
+  getBelonging() {
+    return this.belongings;
+  }
+
+  addTicket(tickets: Ticket) {
+    this.tickets.push(tickets);
+  }
+
+  getTickets(): Ticket[] {
+    return this.tickets;
+  }
 }

@@ -2,30 +2,33 @@ import { Airport } from "../Airport/Airport";
 import { FlightSchedule } from "./FlightSchedule";
 
 export class FlightRoute {
-    private landingLocations: Airport[] = [];
-    private flgihtSchedule : FlightSchedule[]= [];
+  private landingLocations: Airport[] = [];
+  private schedules: FlightSchedule[] = [];
 
-    constructor(private arrivalDestination: Airport) {
-    }
+  constructor(private arrivalDestination: Airport) {}
 
-    getarrivalDestination() {
-        return this.arrivalDestination;
-    }
+  getarrivalDestination() {
+    return this.arrivalDestination;
+  }
 
-    addLandingLocation(landingLocations: Airport) {
-        this.landingLocations.push(landingLocations);
-    }
+  addLandingLocation(landingLocations: Airport) {
+    this.landingLocations.push(landingLocations);
+  }
 
-    updateArrivalDestination(arrivalDestination: Airport) {
-        this.arrivalDestination = arrivalDestination;
-    }
+  updateArrivalDestination(arrivalDestination: Airport) {
+    this.arrivalDestination = arrivalDestination;
+  }
 
-    addFlightSchedule(flightSchedule: FlightSchedule){
-        this.flgihtSchedule.push(flightSchedule);
-    }
-
-    getFlgithSchedules(){
-        return this.flgihtSchedule;
-    }
-
+  getSchedule(departureDate: Date): FlightSchedule | undefined {
+    let matchedSchedule = undefined;
+    this.schedules.forEach((schedule) => {
+      if (schedule.getScheduleInfo().departure === departureDate) {
+        matchedSchedule = schedule;
+      }
+    });
+    return matchedSchedule;
+  }
+  addSchedules(depart: Date, arrive: Date) {
+    return this.schedules.push(new FlightSchedule(depart, arrive));
+  }
 }

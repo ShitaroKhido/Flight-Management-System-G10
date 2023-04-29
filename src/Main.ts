@@ -1,5 +1,6 @@
 import { Airline } from "./Airport/Airline";
 import { Airport } from "./Airport/Airport";
+import { FlightType } from "./Enums/FlightType";
 import { MealType } from "./Enums/MealType";
 import { Meal } from "./Items/Meal";
 import { Passenger } from "./Peoples/Passenger";
@@ -52,3 +53,15 @@ ukrainAirport.registerAirline(ukrainAirline);
 // console.log(cambodiaAirline.getPlaneWithSerial("DDS-233"));
 
 const p = new Passenger("J", "Junior", 2, 150);
+
+cambodiaAirline.bookingFlight(
+  p,
+  "ukrain",
+  FlightType.OneWay,
+  MealType.Vegan,
+  new Date(),
+  1,
+  "A12"
+);
+
+console.log(p);
