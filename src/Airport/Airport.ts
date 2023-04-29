@@ -1,8 +1,10 @@
 import { Plane } from "../Plane/Plane";
 import { Airline } from "./Airline";
+import { BoardingGate } from "./BoardingGate";
 
 export class Airport {
   private airlines: Airline[] = [];
+  private boardingGates: BoardingGate[] = [];
   constructor(
     private name: string,
     private country: string,
@@ -15,6 +17,12 @@ export class Airport {
 
   registerAirline(airline: Airline) {
     this.airlines.push(airline);
+  }
+
+  assignGate(amount: number) {
+    for (let i = 0; i < amount; ++i) {
+      this.boardingGates.push(new BoardingGate(i + 1));
+    }
   }
 
   getAirlines() {

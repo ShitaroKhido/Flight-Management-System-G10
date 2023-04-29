@@ -16,6 +16,10 @@ const ukrainAirport = new Airport(
   "Kyiv"
 );
 
+// Assigning Gate:
+
+cambodiaAirport.assignGate(10);
+ukrainAirport.assignGate(8);
 // Declare Airline:
 const cambodiaAirline = new Airline("Angkor Airline");
 const ukrainAirline = new Airline("Kyiv Airline");
@@ -38,5 +42,5 @@ listOfPlaneInfo.forEach((info) => {
 });
 
 // Logs:
-console.log(cambodiaAirport.getAirlines());
-console.log(ukrainAirport.getAirlines());
+console.log(cambodiaAirport);
+console.log(ukrainAirport);
