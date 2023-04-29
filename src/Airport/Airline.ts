@@ -3,6 +3,7 @@ import { MealType } from "../Enums/MealType";
 import { FlightRoute } from "../Flights/FlightRoute";
 import { Passenger } from "../Peoples/Passenger";
 import { PlanInfo, Plane } from "../Plane/Plane";
+import { Ticket } from "../Tickets/Ticket";
 import { Airport } from "./Airport";
 
 export class Airline {
@@ -11,6 +12,10 @@ export class Airline {
 
   constructor(private name: string) {
     this.name = name;
+  }
+
+  private generatePNR(passenger: Passenger): string {
+    return "";
   }
 
   registerPlane(listOfPlaneInfo: PlanInfo[]) {
@@ -41,10 +46,18 @@ export class Airline {
     return this.aviableRoutes;
   }
 
-  bookingFlight(passenger: Passenger, destination: string, flightType: FlightType, mealType: MealType) {
+  bookingFlight(
+    passenger: Passenger,
+    destination: string,
+    flightType: FlightType,
+    mealType: MealType
+  ) {
     this.aviableRoutes.forEach((route) => {
       if (route.getarrivalDestination().airportInfo().country === destination) {
-        console.log("Okay");
+        const newTicket = new Ticket(this.generatePNR(passenger));
+        passenger.addTicket(newTicket);
+        if (flightType === FlightType.OneWay) {
+        }
       }
     });
   }
