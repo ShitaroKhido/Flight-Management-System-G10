@@ -42,6 +42,16 @@ export class Airline {
     this.aviableRoutes.push(new FlightRoute(destAirport));
   }
 
+  getFlightRoute(country: string): FlightRoute | undefined {
+    let matchedRoute = undefined;
+    this.aviableRoutes.forEach((route) => {
+      if (route.getarrivalDestination().airportInfo().country === country) {
+        matchedRoute = route;
+      }
+    });
+    return matchedRoute;
+  }
+
   availableDestination() {
     return this.aviableRoutes;
   }
@@ -56,8 +66,7 @@ export class Airline {
       if (route.getarrivalDestination().airportInfo().country === destination) {
         const newTicket = new Ticket(this.generatePNR(passenger));
         passenger.addTicket(newTicket);
-        if (flightType === FlightType.OneWay) {
-        }
+        this.getFlightRoute(destination)
       }
     });
   }
