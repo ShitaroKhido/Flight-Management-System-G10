@@ -1,7 +1,12 @@
+import { Belonging } from "../Items/Belonging";
+import { Meal } from "../Items/Meal";
 import { Seat } from "./Seat";
 
 export class Plane {
   private seats: Seat[] = [];
+  private mealLoadout: Meal[] = [];
+  private planeCargo: Belonging[]= [];
+  
   constructor(private serialNumber: string, private numberOfSeat: number) {
     this.generateSeats(numberOfSeat);
   }

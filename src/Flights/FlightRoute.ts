@@ -1,10 +1,10 @@
-export class FlightSchedule{
-    private departureTime: Date;
-    private arrivalTime: Date;
+import { Airport } from "../Airport/Airport";
 
-    constructor(departureTime: Date, arrivalTime: Date){
-        this.departureTime = departureTime;
-        this.arrivalTime = arrivalTime;
+export class FlightRoute{
+    private arrivalDestination: Airport;
+    private landingLocations: Airport[] = [];
+
+    constructor(arrivalDestination: Airport){
+        this.arrivalDestination = arrivalDestination;
     }
-
 }
