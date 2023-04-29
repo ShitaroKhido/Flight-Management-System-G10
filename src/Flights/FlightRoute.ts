@@ -1,7 +1,9 @@
 import { Airport } from "../Airport/Airport";
+import { FlightSchedule } from "./FlightSchedule";
 
 export class FlightRoute {
     private landingLocations: Airport[] = [];
+    private flgihtSchedule : FlightSchedule[]= [];
 
     constructor(private arrivalDestination: Airport) {
     }
@@ -17,4 +19,13 @@ export class FlightRoute {
     updateArrivalDestination(arrivalDestination: Airport) {
         this.arrivalDestination = arrivalDestination;
     }
+
+    addFlightSchedule(flightSchedule: FlightSchedule){
+        this.flgihtSchedule.push(flightSchedule);
+    }
+
+    getFlgithSchedules(){
+        return this.flgihtSchedule;
+    }
+
 }

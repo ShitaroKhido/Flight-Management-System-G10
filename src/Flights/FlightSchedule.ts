@@ -14,6 +14,10 @@ export class FlightSchedule {
         return this.flights;
     }
 
+    getScheduleInfo() {
+        return { departure: this.departureTime, arrival: this.arrivalTime };
+    }
+
 }
 
 
