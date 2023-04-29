@@ -22,4 +22,8 @@ export class Flight {
       this.plane.assignPassengerSeat(seatNumber, passenger);
     }
   }
+
+  getPlane(): Plane | undefined {
+    return this.plane;
+  }
 }

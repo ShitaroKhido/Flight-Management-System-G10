@@ -30,4 +30,11 @@ export class Plane {
       }
     });
   }
+
+  planeInfo() {
+    return {
+      serial: this.serialNumber,
+      seats: this.seats,
+    };
+  }
 }

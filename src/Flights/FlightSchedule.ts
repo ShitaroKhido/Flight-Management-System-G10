@@ -15,4 +15,8 @@ export class FlightSchedule {
   assignFlight(flightType: FlightType) {
     this.flights.push(new Flight(flightType));
   }
+
+  getFligts() {
+    return this.flights;
+  }
 }
