@@ -1,8 +1,9 @@
-import { EmployeeSkill } from "../Enums/EmployeeSkill";
-import { Employee } from "./Employee";
+import { CoPilot } from "./CoPilot";
+import { FlightAttendant } from "./FlightAttendant";
+import { Pilot } from "./Pilot";
 
-export class FlightCrew extends Employee{
-    constructor(firtName: string, lastName: string, height: number, weight: number, yearOfExperiences: number, skillBased: EmployeeSkill){
-        super(firtName, lastName, height, weight, yearOfExperiences, skillBased)
-    }
+export class FlightCrew {
+    private mainPilot: Pilot | undefined;
+    private coPilot: CoPilot | undefined;
+    private flightAttendes: FlightAttendant[] = [];
 }
