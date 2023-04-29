@@ -48,8 +48,4 @@ const p = new Passenger(
   "Junior",
   2,
   150,
-  new Meal("Chicken", 0.3, MealType.DairyFree),
-  new FrequentFlyer(12, 12)
 );
-
-cambodiaAirline.bookingFlight(p, "Ukrain");

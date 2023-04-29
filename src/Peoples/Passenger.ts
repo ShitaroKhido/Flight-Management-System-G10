@@ -9,9 +9,8 @@ export class Passenger extends Person{
     private tickets: Ticket[] = [];
     private flyerPoints: FrequentFlyer = new FrequentFlyer(0,0);
     
-    constructor(firstName:string, lastName:string, height: number, weight: number,private passengerMeal: Meal){
+    constructor(firstName:string, lastName:string, height: number, weight: number){
         super(firstName, lastName, height, weight)
-        this.passengerMeal = passengerMeal;
     }
 
     addBelonging(belonging: Belonging) {
